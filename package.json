@@ -2,8 +2,8 @@
   "name": "ulmen-snabbdom",
   "version": "0.0.1",
   "description": "",
-  "main": "main/index.js",
-  "types": "main/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "tape -r ts-node/register src/**/*.test.ts | tap-spec",
     "coverage": "nyc npm test",
@@ -30,6 +30,7 @@
     "typescript": "^3.0.3"
   },
   "peerDependencies": {
-    "snabbdom": "^0.7.2"
+    "snabbdom": "^0.7.2",
+    "ulmen": "^0.1.2"
   }
 }
