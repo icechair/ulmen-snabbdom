@@ -1,7 +1,7 @@
 import test from 'tape'
 import { JSDOM } from 'jsdom'
 import { init, h } from 'snabbdom'
-import { display, program } from './index'
+import { display, snabbUlm } from './index'
 const dom = new JSDOM(`<html><body><div id="root"></div></body></html>`)
 const { document } = dom.window
 const patch = init([])
@@ -40,11 +40,11 @@ test('display() test', t => {
   t.end()
 })
 
-test('program() test', t => {
+test('snabbUlm() test', t => {
   const render = display('div#root', patch)
-  const prog = program(render, () => ({
-    init: [0],
-    update: (_msg, state) => [state],
+  const prog = snabbUlm(render, () => ({
+    init: { model: 0 },
+    update: (_msg, model) => ({ model }),
     view: (model, dispatch) => h('p', model)
   }))
   const root = document.querySelector('#root')
@@ -59,13 +59,13 @@ test('program() test', t => {
     return t.fail('prog should have a done function')
   }
   prog.done(0)
-  t.equal(root.innerHTML, '', 'done should unmount the program')
+  t.equal(root.innerHTML, '', 'done should unmount the VNodes')
   const timer = setTimeout(() => t.fail('done was not called'), 10)
-  const progWithDone = program(render, () => ({
-    init: [0],
-    update: (_msg, state) => [state],
+  const progWithDone = snabbUlm(render, () => ({
+    init: { model: 0 },
+    update: (_msg, model) => ({ model }),
     view: model => h('p', model),
-    done: model => clearTimeout(timer)
+    done: _ => clearTimeout(timer)
   }))
   if (!progWithDone.done) {
     return t.fail('prog should have a done function')

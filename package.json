@@ -1,7 +1,7 @@
 {
   "name": "ulmen-snabbdom",
   "version": "0.2.0",
-  "description": "ulmen snabbdom program creation",
+  "description": "snabbdom ulm creation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -32,10 +32,10 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.3",
-    "ulmen": "^0.2.0"
+    "ulmen": "^0.3.2"
   },
   "peerDependencies": {
     "snabbdom": "^0.7.2",
-    "ulmen": "^0.2.0"
+    "ulmen": "^0.3.2"
   }
 }

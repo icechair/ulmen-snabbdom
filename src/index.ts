@@ -1,6 +1,6 @@
 import { h } from 'snabbdom/h'
 import { VNode } from 'snabbdom/vnode'
-import { Program } from 'ulmen/lib/runtime'
+import { Ulm, ulmen } from 'ulmen/lib/ulm'
 
 export type Patcher = (oldNode: VNode | Element, vNode: VNode) => VNode
 export type Render = (next: string | VNode | VNode[]) => void
@@ -12,10 +12,10 @@ export const display = (selector: string, patch: Patcher): Render => {
   }
 }
 
-export const program = <TState, TMessage>(
+export const snabbUlm = <TState, TMessage>(
   render: Render,
-  createApp: () => Program<TState, TMessage, VNode | VNode[]>
-): Program<TState, TMessage, void> => {
+  createApp: () => Ulm<TState, TMessage, VNode | VNode[]>
+): Ulm<TState, TMessage, void> => {
   const app = createApp()
   const { view, done } = app
   return {
