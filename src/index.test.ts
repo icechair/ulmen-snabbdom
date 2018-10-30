@@ -5,10 +5,10 @@ import { display, snabbUlm } from './index'
 const dom = new JSDOM(`<html><body><div id="root"></div></body></html>`)
 const { document } = dom.window
 const patch = init([])
-// @ts-ignore
-global.document = document
 
 const id = <T>(x: T) => x
+// @ts-ignore
+global.document = document
 
 test('display() test', t => {
   const render = display('div#root', patch)

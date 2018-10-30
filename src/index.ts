@@ -1,14 +1,14 @@
 import { h } from 'snabbdom/h'
 import { VNode } from 'snabbdom/vnode'
 import { toVNode } from 'snabbdom/tovnode'
-import { Ulm, ulmen } from 'ulmen/lib/ulm'
+import { Ulm } from 'ulmen/lib/ulm'
 
 export type Patcher = (oldNode: VNode | Element, vNode: VNode) => VNode
 export type Render = (next: string | VNode | VNode[]) => VNode
 
 export const display = (selector: string, patch: Patcher): Render => {
   let root = h(selector)
-  if (document) {
+  if (typeof document !== 'undefined') {
     root = toVNode(document.querySelector(selector) as Node)
   }
   return next => {
