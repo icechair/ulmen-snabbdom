@@ -1,6 +1,6 @@
 {
   "name": "ulmen-snabbdom",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "snabbdom ulm creation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
