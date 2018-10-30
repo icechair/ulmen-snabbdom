@@ -16,9 +16,9 @@ test('display() test', t => {
   if (!root) {
     return t.fail('jsdom failed')
   }
-  render('hello world')
+  const result = render('hello world')
   t.equal(root.innerHTML, 'hello world', 'render should work with strings')
-
+  t.equal(typeof result, 'object', 'render should return the new VNode')
   render(h('p', 'hello world'))
   const p = root.children[0]
   t.equal(p.tagName.toLowerCase(), 'p', 'should have rendered a <p/>')

@@ -9,6 +9,7 @@ export const display = (selector: string, patch: Patcher): Render => {
   let root = document.querySelector(selector) as Element | VNode
   return next => {
     root = patch(root, h(selector, next))
+    return root
   }
 }
 
