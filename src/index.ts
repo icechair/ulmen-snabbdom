@@ -3,7 +3,7 @@ import { VNode } from 'snabbdom/vnode'
 import { Ulm, ulmen } from 'ulmen/lib/ulm'
 
 export type Patcher = (oldNode: VNode | Element, vNode: VNode) => VNode
-export type Render = (next: string | VNode | VNode[]) => void
+export type Render = (next: string | VNode | VNode[]) => VNode
 
 export const display = (selector: string, patch: Patcher): Render => {
   let root = document.querySelector(selector) as Element | VNode
