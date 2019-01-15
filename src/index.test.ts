@@ -43,9 +43,9 @@ test('display() test', t => {
 test('snabbUlm() test', t => {
   const render = display('div#root', patch)
   const prog = snabbUlm(render, () => ({
-    init: { model: 0 },
-    update: (_msg, model) => ({ model }),
-    view: (model, dispatch) => h('p', model)
+    init: { state: 0 },
+    update: (_msg, state) => ({ state }),
+    view: (state, signal) => h('p', state)
   }))
   const root = document.querySelector('#root')
   if (!root) {
@@ -62,9 +62,9 @@ test('snabbUlm() test', t => {
   t.equal(root.innerHTML, '', 'done should unmount the VNodes')
   const timer = setTimeout(() => t.fail('done was not called'), 10)
   const progWithDone = snabbUlm(render, () => ({
-    init: { model: 0 },
-    update: (_msg, model) => ({ model }),
-    view: model => h('p', model),
+    init: { state: 0 },
+    update: (_msg, state) => ({ state }),
+    view: state => h('p', state),
     done: _ => clearTimeout(timer)
   }))
   if (!progWithDone.done) {

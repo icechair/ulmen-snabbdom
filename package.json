@@ -20,22 +20,22 @@
   },
   "devDependencies": {
     "@types/jsdom": "^11.12.0",
-    "@types/node": "^10.9.4",
-    "@types/tape": "^4.2.32",
+    "@types/node": "^10.12.18",
+    "@types/tape": "^4.2.33",
     "jsdom": "^12.2.0",
     "nyc": "^13.0.1",
-    "prettier": "^1.14.2",
-    "snabbdom": "^0.7.2",
+    "prettier": "^1.15.3",
+    "snabbdom": "^0.7.3",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1",
+    "tape": "^4.9.2",
     "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.0.3",
-    "ulmen": "^0.3.2"
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2",
+    "ulmen": "^0.4.0"
   },
   "peerDependencies": {
-    "snabbdom": "^0.7.2",
-    "ulmen": "^0.3.2"
+    "snabbdom": "^0.7.3",
+    "ulmen": "^0.4.0"
   }
 }
