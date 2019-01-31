@@ -1,10 +1,10 @@
-import { h } from 'snabbdom/h'
+import { h, VNodeChildren } from 'snabbdom/h'
 import { VNode } from 'snabbdom/vnode'
 import { toVNode } from 'snabbdom/tovnode'
 import { Ulm } from 'ulmen/lib/ulm'
 
 export type Patcher = (oldNode: VNode | Element, vNode: VNode) => VNode
-export type Render = (next: string | VNode | VNode[]) => VNode
+export type Render = (next: VNodeChildren) => VNode
 
 export const display = (selector: string, patch: Patcher): Render => {
   let root = h(selector)
@@ -19,7 +19,7 @@ export const display = (selector: string, patch: Patcher): Render => {
 
 export const snabbUlm = <TState, TMessage>(
   render: Render,
-  createApp: () => Ulm<TState, TMessage, VNode | VNode[]>
+  createApp: () => Ulm<TState, TMessage, VNodeChildren>
 ): Ulm<TState, TMessage, void> => {
   const app = createApp()
   const { view, done } = app
